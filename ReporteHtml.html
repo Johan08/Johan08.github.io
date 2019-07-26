@@ -1,0 +1,2438 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reporte Resultado Test Automatizado</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
+</head><body><div class="container principal">		<div class="row">
+            <div class="col-md-12 logo">
+                <img src="images/logo_bcochile.png">
+            </div>
+        </div>
+        <div class="row text-center titulo-reporte">
+            <div class="col-md-12">
+                <h1>Reporte De Automatizacion</h1>
+                <h4 class="fecha-reporte">26-07-2019 13:37:35</h4>
+            </div>
+        </div>   <div class="row text-center resumen-reporte">
+            <div class=" col-md-3 resultado ">
+                <h4>Features</h4>
+                <p>1</p>
+            </div>
+            <div class=" col-md-3 resultado ">
+                <h4>Escenarios</h4>
+                <p>10</p>
+            </div>
+            <div class=" col-md-3 resultado " >
+                <h4>Tiempo</h4>
+                <p>00:01:28</p>
+            </div>
+            <div class=" col-md-3 resultado " >
+                <h4>Porcentaje</h4>
+                <p>50%</p>
+            </div>
+        </div>
+        <div class="row hidden-sm hidden-xs zona-grafico">
+            <canvas id="chart" width="600" height="500"></canvas>
+            <table id="chartData">
+                <tbody><tr><th>Estado</th><th></th></tr>
+                <tr style="color: #0DA068"><td>Aprobadas</td><td>5</td></tr>
+                <tr style="color: #057249"><td>No Definidas</td><td>0</td></tr>
+                <tr style="color: #ED9C13"><td>Pendientes</td><td>0</td></tr>
+                <tr style="color: #194E9C"><td>Ignoradas</td><td>0</td></tr>
+                <tr style="color: #ED5713"><td>Falladas</td><td>5</td></tr>
+            </tbody></table>
+        </div>
+        <div class="row visible-sm visible-xs zona-grafico-mobile" >
+            <label>Grafico</label>
+            <div class="progress">
+                <!-- Aprobadas -->
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:50%"></div>
+                <!-- Fallidas -->
+                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%"></div>
+                <!-- Ignoradas -->
+                <div class="progress-bar progress-bar-ign" role="progressbar" style="width:20%"></div>
+                <!-- Pendientes -->
+                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%"></div>
+                <!-- No Definidas -->
+                <div class="progress-bar progress-bar-no-definida" role="progressbar" style="width:10%"></div>
+            </div>
+        </div>
+        <div class="row visible-sm visible-xs">
+            <div class="col-xs-12">
+                <table class="table efecto-tabla">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Estado</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="color: #0DA068;">
+                            <td style="width: 25px"><span class="glyphicon glyphicon-ok paso-aprobado" aria-hidden="true"></span></td>
+                            <td>Aprobadas</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                        <tr style="color: #057249;">
+                            <td><span class="glyphicon glyphicon-question-sign paso-no-definida" style="color: #057249;" aria-hidden="true"></span></td>
+                            <td>No Definidas</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr style="color: #ED9C13;">
+                            <td><span class="glyphicon glyphicon-info-sign paso-pendiente" style="color: #ED9C13;" aria-hidden="true"></span></td>
+                            <td>Pendientes</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr style="color: #194E9C;">
+                            <td><span class="glyphicon glyphicon-minus-sign paso-ignorada" aria-hidden="true"></span></td>
+                            <td>Ignoradas</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr style="color: #ff0000;">
+                            <td><span class="glyphicon glyphicon-remove paso-fallido" aria-hidden="true"></span></td>
+                            <td>Falladas</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> <div class="row filtros hidden-print" style=" margin-left: 0px; margin-right: 0px; margin-bottom: 0px; padding: 12px; border: 1px solid #efecec;">
+            <form class="form-horizontal" role="form" style="margin-bottom: 0px;">
+                <div class="form-group" style="margin-bottom: 0px">
+                    <div class="col-md-2">
+                       
+                    </div>
+                    <div class="col-md-9">
+                        <div class="form-group row" style="margin-bottom: 0px">
+                            <label for="inputKey" class="col-md-2 control-label">Features</label>
+                            <div class="col-md-3">
+                                <select class="form-control selcls" id="filtro_feature">									<option value="0">Todos</option>
+<option value="1">Ingreso Solicitud de Tasaci&#243;n</option>
+                                </select>
+                            </div>
+                            <label for="inputValue" class="col-md-2 control-label">Estado</label>
+                            <div class="col-md-3">
+                                <select class="form-control selcls" id="filtro_estado">
+                                    <option value="0">Todos</option>
+                                    <option value="1">Aprobadas</option>
+                                    <option value="2">Fallidas</option>
+                                    <option value="3">No Definidas</option>
+                                    <option value="4">Pendientes</option>
+                                    <option value="5">Ignoradas</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><div id="feature1" class="feature">
+	<div class="row">
+   	<div class="col-sm-12">
+       	<h3 class="titulo-feature">Ingreso Solicitud de Tasaci&#243;n</h3>
+          	<hr class="hr_feature">
+       </div>
+   </div> <div class="row aprobada">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo rut </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.063 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162550824.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia del campo rut <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.041 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162551162.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And verifico que el campo rut sea editable <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.028 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162551476.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut &#34;17782304&#34; de cliente sin DV <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.17 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162551915.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.115 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162552329.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia de la alerta desplegada sin DV <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.062 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162552740.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut &#34;100000&#34; de cliente menor de un millon <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.108 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162553158.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.033 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162553490.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia de la alerta desplegada menor de un millon <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.084 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162553908.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut &#34;17772495-5&#34; de cliente no registrado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.143 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162554384.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.065 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162554775.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso vacio en el campo rut del cliente <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.07 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162555178.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.039 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162555524.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia de la alerta ingreso obligatorio <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.051 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162555853.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut terminado en k &#34;17772495-k&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.322 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162556503.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.038 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162556860.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut con letras &#34;ahhshs&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.12 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162557298.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.032 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162557664.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut correcto sin formatear &#34;177823066&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.282 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162558270.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo rut se encuentre formateado correctamente <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.017 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162558585.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut erroneo &#34;18383034-3&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.189 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162559079.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia de la alerta ingreso erroneo <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.067 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162559444.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="row aprobada">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Ingresando una Nueva Solicitud </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162564770.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso el rut &#34;1-9&#34;  de cliente <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.11 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162565215.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And presiono sobre el boton buscar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.088 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162565641.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia del boton Nueva Solicitud <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.029 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162566003.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When selecciono sobre el boton Nueva Solicitud <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        2.075 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162568375.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el despliegue de los siguientes campos en Datos Cliente y Forma de Pago <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.11 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162568782.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el campo rut sea solo de lectura <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.015 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162569068.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And verifico el campo nombre sea solo de lectura <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.016 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162569352.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When selecciono en el combobox propiedad el valor &#34;Cliente es propietario&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.283 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162569943.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When selecciono en el combobox forma de pago el valor &#34;Cuenta corriente&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.233 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162570547.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico la existencia del combobox NCuentaAsociado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.027 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162570921.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And selecciono en el combobox N&#176; Cuenta Asociado el valor &#34;000-123-3212-4656&#34; <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.273 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162571517.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And selecciono sobre el boton Siguiente <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        2.164 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162574055.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="row aprobada">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Ingresando Bienes a Ingresar - Tipo Operacion | Tipo Informe | Tipo Bien </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162579340.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given me encuentro en la seccion Bienes a Ingresar <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.03 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162579638.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;Cr&#233;dito Hipotecario&#34; en el combobox Tipo Operacion <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.208 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162580110.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And ingreso &#34;Tasaci&#243;n Piloto&#34; en el combobox Tipo Informe <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        2.295 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162582788.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And ingreso &#34;CASA&#34; en el combobox Tipo Bien <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.293 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162583435.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="row aprobada">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo Busqueda Direccion </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162588746.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;Lo Barnechea 1544&#34; en el campo Busqueda Direccion <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        4.507 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162593542.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="row ">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo Depto-Local-Letra </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162598876.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el campo Depto-Local-Letra sea editable <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.026 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162599213.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;fdjffdhfdjhfhfhfhfjhfd&#34; en el Depto-Local-Letra <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.262 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162599773.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso fallida">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Depto-Local-Letra no exceda el limite de 10 caracteres permitidos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-fallido " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.017 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-fallido">
+                        Fallido!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+<p>java.lang.AssertionError: El campo rut permite el ingreso de mas 10 caracteres<br /></p>
+<div class="hidden-xs"><span class="ver-imagen">(Ver Imagen)</span> 								<span class="ver-mas2">(Ver detalle)</span>							 </div>
+                            <div class="imagen-detalle text-center">
+                                <hr class="hr-detalle">
+									<img src="evidencias/ReporteHtml/1564162600089.png">                            </div>
+                            <div class="detalle-paso2" >
+java.lang.AssertionError: El campo rut permite el ingreso de mas 10 caracteres<br />	at org.junit.Assert.fail(Assert.java:88)<br />	at org.junit.Assert.assertTrue(Assert.java:41)<br />	at qa.automatedtesting.base_uat.definitions.IngresoSolicitudTasacionDefinition.verifico_que_en_el_campo_Depto_Local_Letra_no_exceda_el_limite_de_caracteres_permitidos(IngresoSolicitudTasacionDefinition.java:295)<br />	at ✽.Then verifico que en el campo Depto-Local-Letra no exceda el limite de 10 caracteres permitidos(01_IngresoSolicitudTasacion.feature:74)<br /></div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;Local&#34; en el Depto-Local-Letra <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="row ">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo Localidad-Loteo-Edificio </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162605418.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el campo Localidad-Loteo-Edificio sea editable <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.019 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162605771.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de caracteres numericos &#34;0011223344&#34; en el campo Localidad-Loteo-Edificio <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.147 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162606228.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso fallida">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Localidad-Loteo-Edificio restrinja caracteres numericos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-fallido " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.015 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-fallido">
+                        Fallido!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+<p>java.lang.AssertionError: El campo permite el ingreso de caracteres numericos<br /></p>
+<div class="hidden-xs"><span class="ver-imagen">(Ver Imagen)</span> 								<span class="ver-mas2">(Ver detalle)</span>							 </div>
+                            <div class="imagen-detalle text-center">
+                                <hr class="hr-detalle">
+									<img src="evidencias/ReporteHtml/1564162606558.png">                            </div>
+                            <div class="detalle-paso2" >
+java.lang.AssertionError: El campo permite el ingreso de caracteres numericos<br />	at org.junit.Assert.fail(Assert.java:88)<br />	at org.junit.Assert.assertTrue(Assert.java:41)<br />	at org.junit.Assert.assertFalse(Assert.java:64)<br />	at qa.automatedtesting.base_uat.definitions.IngresoSolicitudTasacionDefinition.verifico_que_en_el_campo_Localidad_Loteo_Edificio_restrinja_caracteres_numericos(IngresoSolicitudTasacionDefinition.java:310)<br />	at ✽.Then verifico que en el campo Localidad-Loteo-Edificio restrinja caracteres numericos(01_IngresoSolicitudTasacion.feature:81)<br /></div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de caracteres especiales &#34;$%&#38;$#%&#34;$(&#34; en el campo Localidad-Loteo-Edificio <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Localidad-Loteo-Edificio restrinja caracteres especiales <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;fdjffdhfdjhfhfhfhfjhfd&#34; en el Localidad-Loteo-Edificio <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And verifico que en el campo Localidad-Loteo-Edificio no exceda el limite de 10 caracteres permitidos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;Localidad&#34; en el Localidad-Loteo-Edificio <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="row ">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo Valor Estimado </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        4.999 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162611850.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el campo Valor Estimado sea editable <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.024 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162612164.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de solo ceros en el campo Valor Estimado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.191 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162612624.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso fallida">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Valor Estimado restrinja ceros <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-fallido " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.018 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-fallido">
+                        Fallido!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+<p>java.lang.AssertionError: El campo permite el ingreso de caracteres especiales <br /></p>
+<div class="hidden-xs"><span class="ver-imagen">(Ver Imagen)</span> 								<span class="ver-mas2">(Ver detalle)</span>							 </div>
+                            <div class="imagen-detalle text-center">
+                                <hr class="hr-detalle">
+									<img src="evidencias/ReporteHtml/1564162612957.png">                            </div>
+                            <div class="detalle-paso2" >
+java.lang.AssertionError: El campo permite el ingreso de caracteres especiales <br />	at org.junit.Assert.fail(Assert.java:88)<br />	at org.junit.Assert.assertTrue(Assert.java:41)<br />	at qa.automatedtesting.base_uat.definitions.IngresoSolicitudTasacionDefinition.verifico_que_en_el_campo_Valor_Estimado_restrinja_ceros(IngresoSolicitudTasacionDefinition.java:345)<br />	at ✽.Then verifico que en el campo Valor Estimado restrinja ceros(01_IngresoSolicitudTasacion.feature:92)<br /></div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de letras en el campo Valor Estimado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Valor Estimado restrinja letras <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de decimal &#34;1,233&#34; en el campo Valor Estimado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Valor Estimado permita ingreso de decimal <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de caracteres especiales &#34;$%&#38;$#%&#34;$(&#34; en el campo Valor Estimado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Valor Estimado restrinja caracteres especiales <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;10000000000000000&#34; en el Valor Estimado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Valor Estimado no exceda el limite de 10 caracteres permitidos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;10000020&#34; en el Valor Estimado <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="row aprobada">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Ingreso de 15 roles en el campo Rol </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162618284.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        19.522 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162638186.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="row ">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo ROL </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        4.999 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162643438.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;12345&#34; en el rolUno <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.077 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162643830.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And ingreso &#34;54321&#34; en el rolDos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.067 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162644202.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And selecciona link agregar Rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        1.072 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162645616.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso fallida">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo rol no permita ingresar el decimosexto rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-fallido " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.013 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-fallido">
+                        Fallido!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+<p>java.lang.AssertionError: permite el ingreso de más de 15 roles<br /></p>
+<div class="hidden-xs"><span class="ver-imagen">(Ver Imagen)</span> 								<span class="ver-mas2">(Ver detalle)</span>							 </div>
+                            <div class="imagen-detalle text-center">
+                                <hr class="hr-detalle">
+									<img src="evidencias/ReporteHtml/1564162645962.png">                            </div>
+                            <div class="detalle-paso2" >
+java.lang.AssertionError: permite el ingreso de más de 15 roles<br />	at org.junit.Assert.fail(Assert.java:88)<br />	at org.junit.Assert.assertTrue(Assert.java:41)<br />	at qa.automatedtesting.base_uat.definitions.IngresoSolicitudTasacionDefinition.verifico_que_en_el_campo_rol_no_permita_ingresar_el_decimosexto_rol(IngresoSolicitudTasacionDefinition.java:410)<br />	at ✽.Then verifico que en el campo rol no permita ingresar el decimosexto rol(01_IngresoSolicitudTasacion.feature:127)<br /></div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el campo rol sea editable <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de solo ceros en el campo rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo rol restrinja ceros <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de caracteres especiales &#34;$%&#38;$#%&#34;$(&#34; en el campo rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo rol restrinja caracteres especiales <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de letras en el campo rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo rol restrinja letras <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso de numero con espacios &#34;1 3 4 8&#34; en el campo rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo rol restrinja numero con espacios <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When elimino todo los roles <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And ingreso &#34;12345&#34; en el rolUno <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And ingreso &#34;54321&#34; en el rolDos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">And selecciona link agregar Rol <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="row ">
+                <div class="col-sm-12 col-xs-12">
+                    <h4 class="titulo-scenario">Validar la existencia y validaciones en el campo Informaci&#243;n Especifica del Bien </h4>
+                </div>
+            </div> <div class="row"><div class="col-md-12"></div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Given Ingreso a pagina Tasaciones <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        5.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162651292.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico el campo informacion especifica del bien sea editable <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.032 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162651599.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso aprobada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;https://jaidefinichon.com/&#34; en el campo Informacion especifica del bien <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver imagen)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-aprobado " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        2.187 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-aprobado">
+                        Aprobada!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <div class="text-center">
+									<img src="evidencias/ReporteHtml/1564162654069.png" style="width: 100%;" >                            </div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso fallida">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Informacion especifica del bien restrinja links <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-fallido " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.018 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-fallido">
+                        Fallido!
+                    </div>
+                </div><div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+<p>java.lang.AssertionError: el campo informacion especifica del bien contiene links<br /></p>
+<div class="hidden-xs"><span class="ver-imagen">(Ver Imagen)</span> 								<span class="ver-mas2">(Ver detalle)</span>							 </div>
+                            <div class="imagen-detalle text-center">
+                                <hr class="hr-detalle">
+									<img src="evidencias/ReporteHtml/1564162654396.png">                            </div>
+                            <div class="detalle-paso2" >
+java.lang.AssertionError: el campo informacion especifica del bien contiene links<br />	at org.junit.Assert.fail(Assert.java:88)<br />	at org.junit.Assert.assertTrue(Assert.java:41)<br />	at qa.automatedtesting.base_uat.definitions.IngresoSolicitudTasacionDefinition.verifico_que_en_el_campo_Informacion_especifica_del_bien_restrinja_links(IngresoSolicitudTasacionDefinition.java:492)<br />	at ✽.Then verifico que en el campo Informacion especifica del bien restrinja links(01_IngresoSolicitudTasacion.feature:146)<br /></div>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;saddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddf&#34; en el campo Informacion especifica del bien <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el campo Informacion especifica del bien  no exceda el limite de 100 caracteres permitidos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;sadddddddddddddddddddddddddddddddddddddddddddddddd&#34; en el campo Informacion especifica del bien <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">Then verifico que en el contador de caracteres del campo Informacion especifica del bien reduzca la cantidad de caracteres permitidos <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div> <div class="paso ignorada">
+                <div class="row">
+                    <div class="col-md-8 col-xs-10">
+                        <div style="float:left"> <img src="images/windows.png" style="margin-right: 5px;">  <img src='images/chrome.png'>&nbsp;&nbsp;</div>
+                        <p style="margin-left: 25px;" class="text-justify">When ingreso &#34;esto es una glosa very good!&#34; en el campo Informacion especifica del bien <span class="ver-mas visible-sm-inline visible-md-inline visible-lg-inline"> (Ver Detalle)</span>
+                    </div>
+                    <div class="col-xs-2 visible-xs text-center">
+                        <span class="glyphicon glyphicon-ok paso-pendiente " aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs">
+                        0.0 seg.
+                    </div>
+                    <div class="col-md-2 col-xs-2 text-center hidden-xs paso-pendiente">
+                        Ignorada!
+                    </div>
+                </div>                <div class="row detalle-paso">
+                    <div class="col-sm-12">
+                        <hr class="hr-detalle">
+                        <div class="detalle-exception text-danger">
+                            <p>Ignorada por una falla o excepción dentro del escenario, favor revisar paso a paso.</p>
+                        </div>
+                    </div>
+                </div></div></div>        <div class="row text-center" id="sin-resultado" style="display: none; margin: 30px 10px 10px 10px;">
+            <div class="col-md-12">
+                <img src="images/qa_logo2.png">
+                No hay resultados con el filtro seleccionado
+            </div>
+        </div>
+        <div class="row text-center pie">
+            <div class="col-md-12">
+                <div class="imagen">
+                    <!--<img src="images/logo.png">-->
+                    <p>TCS</p>
+                </div>
+            </div>
+        </div>    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/grafico.js"></script>
+    <script src="js/funciones2.js"></script>
+</div></html>

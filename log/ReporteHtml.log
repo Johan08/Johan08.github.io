@@ -1,0 +1,13 @@
+13:35:40,452  INFO HtmlReport:143 - inicia Constructor de Reporte! - WebDriver driver, String screenShot, String titulo, String iconografia, String nombreArchivo
+13:35:45,750  INFO HtmlReport:208 - Abre Nuevo Feature - openBloque, Ingreso Solicitud de Tasación
+13:35:59,767  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo rut - passed
+13:36:14,336  INFO HtmlReport:265 - Agrega Resultado - addResultado, Ingresando una Nueva Solicitud - passed
+13:36:23,743  INFO HtmlReport:265 - Agrega Resultado - addResultado, Ingresando Bienes a Ingresar - Tipo Operacion | Tipo Informe | Tipo Bien - passed
+13:36:33,871  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo Busqueda Direccion - passed
+13:36:40,415  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo Depto-Local-Letra - failed
+13:36:46,848  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo Localidad-Loteo-Edificio - failed
+13:36:53,280  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo Valor Estimado - failed
+13:37:18,433  INFO HtmlReport:265 - Agrega Resultado - addResultado, Ingreso de 15 roles en el campo Rol - passed
+13:37:26,288  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo ROL - failed
+13:37:34,703  INFO HtmlReport:265 - Agrega Resultado - addResultado, Validar la existencia y validaciones en el campo Información Especifica del Bien - failed
+13:37:35,894  INFO HtmlReport:319 - Graba el Informe - generaHTML, ReporteHtml
