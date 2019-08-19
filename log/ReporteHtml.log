@@ -1,4 +1,4 @@
-18:44:59,093  INFO HtmlReport:143 - inicia Constructor de Reporte! - WebDriver driver, String screenShot, String titulo, String iconografia, String nombreArchivo
-18:45:00,860  INFO HtmlReport:208 - Abre Nuevo Feature - openBloque, Realizar Ingreso a google y busqueda posterior
-18:45:17,169  INFO HtmlReport:265 - Agrega Resultado - addResultado, Realizar busqueda en google - passed
-18:45:17,291  INFO HtmlReport:319 - Graba el Informe - generaHTML, ReporteHtml
+20:48:49,463  INFO HtmlReport:143 - inicia Constructor de Reporte! - WebDriver driver, String screenShot, String titulo, String iconografia, String nombreArchivo
+20:48:50,633  INFO HtmlReport:208 - Abre Nuevo Feature - openBloque, Realizar Ingreso a google y busqueda posterior
+20:49:06,904  INFO HtmlReport:265 - Agrega Resultado - addResultado, Realizar busqueda en google - passed
+20:49:07,081  INFO HtmlReport:319 - Graba el Informe - generaHTML, ReporteHtml
