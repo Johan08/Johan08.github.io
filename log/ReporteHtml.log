@@ -1,24 +1,4 @@
-10:56:16,457  INFO HtmlReport:143 - inicia Constructor de Reporte! - WebDriver driver, String screenShot, String titulo, String iconografia, String nombreArchivo
-10:56:23,121  INFO HtmlReport:208 - Abre Nuevo Feature - openBloque, Asignacion de Tasador y Visador
-10:57:31,313  INFO HtmlReport:265 - Agrega Resultado - addResultado, Asignar tasador a solicitud asignacion tasacion - failed
-10:58:07,042  INFO HtmlReport:265 - Agrega Resultado - addResultado, Asignar tasador a solicitud asignacion tasacion - failed
-10:58:42,776  INFO HtmlReport:265 - Agrega Resultado - addResultado, verifico la existencia boton informacion & ausencias tasador - failed
-10:59:18,550  INFO HtmlReport:265 - Agrega Resultado - addResultado, verifico la existencia boton asignar tasador Confirmar-Cancelar - failed
-10:59:54,425  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar confirmacion asignacion tasador - failed
-11:00:00,141  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar actualizacion de grilla solicitudes pendientes - failed
-11:00:35,969  INFO HtmlReport:265 - Agrega Resultado - addResultado, Asignar visador a la solicitud de tasacion - failed
-11:01:11,755  INFO HtmlReport:265 - Agrega Resultado - addResultado, validar existencia de boton informacion visador - failed
-11:02:18,106  INFO HtmlReport:265 - Agrega Resultado - addResultado, verifico la existencia boton asignar Visador Confirmar-Cancelar - failed
-11:02:53,751  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar confirmacion asignacion visador - failed
-11:02:59,396  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar actualizacion de grilla solicitudes pendientes - failed
-11:03:35,447  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar pestana de listado de tasadores - failed
-11:04:12,228  INFO HtmlReport:265 - Agrega Resultado - addResultado, validar la existencia de pestaña buscar tasador manualmente - failed
-11:04:52,922  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar buscador tasador manual desplieque listado - failed
-11:04:59,267  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar selección de tasador desde listado manual - passed
-11:05:06,224  INFO HtmlReport:265 - Agrega Resultado - addResultado, Verificar la existencia del boton Volver y presionar sobre este - passed
-11:05:42,023  INFO HtmlReport:265 - Agrega Resultado - addResultado, validar la existencia de pestana buscar visador manualmente - failed
-11:06:17,842  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar buscador visador manual desplieque listado - failed
-11:06:53,637  INFO HtmlReport:265 - Agrega Resultado - addResultado, verificar pestana de listado de visadores - failed
-11:07:30,039  INFO HtmlReport:265 - Agrega Resultado - addResultado, validar la exitencia de boton ver solicitud tasador despliegue de informacion - failed
-11:08:05,816  INFO HtmlReport:265 - Agrega Resultado - addResultado, validar la exitencia de boton ver solicitud visador despliegue de informacion - failed
-11:08:06,583  INFO HtmlReport:319 - Graba el Informe - generaHTML, ReporteHtml
+18:44:59,093  INFO HtmlReport:143 - inicia Constructor de Reporte! - WebDriver driver, String screenShot, String titulo, String iconografia, String nombreArchivo
+18:45:00,860  INFO HtmlReport:208 - Abre Nuevo Feature - openBloque, Realizar Ingreso a google y busqueda posterior
+18:45:17,169  INFO HtmlReport:265 - Agrega Resultado - addResultado, Realizar busqueda en google - passed
+18:45:17,291  INFO HtmlReport:319 - Graba el Informe - generaHTML, ReporteHtml
